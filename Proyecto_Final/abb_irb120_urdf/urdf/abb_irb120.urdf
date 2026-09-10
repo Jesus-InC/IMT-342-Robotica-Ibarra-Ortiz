@@ -1,0 +1,208 @@
+<?xml version="1.0"?>
+<robot name="abb_irb120">
+
+  <!-- MATERIALES -->
+  <material name="abb_orange">
+    <color rgba="0.925 0.423 0.074 1.0"/>
+  </material>
+  <material name="black">
+    <color rgba="0.1 0.1 0.1 1.0"/>
+  </material>
+
+  <!-- BASE LINK -->
+  <link name="base_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://abb_irb120_description/meshes/visual/base_link.stl"/>
+      </geometry>
+      <material name="abb_orange"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://abb_irb120_description/meshes/collision/base_link.stl"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- LINK 1 -->
+  <link name="link_1">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://abb_irb120_description/meshes/visual/link_1.stl"/>
+      </geometry>
+      <material name="abb_orange"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://abb_irb120_description/meshes/collision/link_1.stl"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- JOINT 1 -->
+  <joint name="joint_1" type="revolute">
+    <parent link="base_link"/>
+    <child link="link_1"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-2.87979" upper="2.87979" effort="100" velocity="4.36332"/>
+  </joint>
+
+  <!-- LINK 2 -->
+  <link name="link_2">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://abb_irb120_description/meshes/visual/link_2.stl"/>
+      </geometry>
+      <material name="abb_orange"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://abb_irb120_description/meshes/collision/link_2.stl"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- JOINT 2 -->
+  <joint name="joint_2" type="revolute">
+    <parent link="link_1"/>
+    <child link="link_2"/>
+    <origin xyz="0 0 0.290" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-1.91986" upper="1.91986" effort="100" velocity="4.36332"/>
+  </joint>
+
+  <!-- LINK 3 -->
+  <link name="link_3">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://abb_irb120_description/meshes/visual/link_3.stl"/>
+      </geometry>
+      <material name="abb_orange"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://abb_irb120_description/meshes/collision/link_3.stl"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- JOINT 3 (Límites simétricos para centrar el slider en 0.000) -->
+  <joint name="joint_3" type="revolute">
+    <parent link="link_2"/>
+    <child link="link_3"/>
+    <origin xyz="0 0 0.270" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-1.91986" upper="1.91986" effort="100" velocity="4.36332"/>
+  </joint>
+
+  <!-- LINK 4 -->
+  <link name="link_4">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://abb_irb120_description/meshes/visual/link_4.stl"/>
+      </geometry>
+      <material name="abb_orange"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://abb_irb120_description/meshes/collision/link_4.stl"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- JOINT 4 -->
+  <joint name="joint_4" type="revolute">
+    <parent link="link_3"/>
+    <child link="link_4"/>
+    <origin xyz="0 0 0.070" rpy="0 0 0"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="-2.79253" upper="2.79253" effort="100" velocity="5.58505"/>
+  </joint>
+
+  <!-- LINK 5 -->
+  <link name="link_5">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://abb_irb120_description/meshes/visual/link_5.stl"/>
+      </geometry>
+      <material name="abb_orange"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://abb_irb120_description/meshes/collision/link_5.stl"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- JOINT 5 -->
+  <joint name="joint_5" type="revolute">
+    <parent link="link_4"/>
+    <child link="link_5"/>
+    <origin xyz="0.302 0 0" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-2.094395" upper="2.094395" effort="100" velocity="5.58505"/>
+  </joint>
+
+  <!-- LINK 6 -->
+  <link name="link_6">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://abb_irb120_description/meshes/visual/link_6.stl"/>
+      </geometry>
+      <material name="black"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://abb_irb120_description/meshes/collision/link_6.stl"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- JOINT 6 -->
+  <joint name="joint_6" type="revolute">
+    <parent link="link_5"/>
+    <child link="link_6"/>
+    <origin xyz="0.072 0 0" rpy="0 0 0"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="-6.98132" upper="6.98132" effort="100" velocity="7.33038"/>
+  </joint>
+
+  <!-- EFECTOR FINAL -->
+  <link name="gripper_link">
+    <visual>
+      <origin xyz="0.025 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.05 0.08 0.04"/>
+      </geometry>
+      <material name="black"/>
+    </visual>
+    <collision>
+      <origin xyz="0.025 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.05 0.08 0.04"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="joint_gripper" type="fixed">
+    <parent link="link_6"/>
+    <child link="gripper_link"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+
+</robot>
